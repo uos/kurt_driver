@@ -2,7 +2,7 @@
 <robot
   xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find uos_common_urdf)/uos/sick_lms200.urdf.xacro" />
+  <include filename="$(find uos_common_urdf)/urdf/sick_lms200.urdf.xacro" />
 
   <link name="laptop_structure">
     <visual>
