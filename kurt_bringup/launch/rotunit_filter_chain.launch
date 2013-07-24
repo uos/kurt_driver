@@ -4,7 +4,6 @@
 
   <!-- scan (LaserScan) to cloud_filtered (PointCloud) -->
   <node pkg="laser_filters" type="scan_to_cloud_filter_chain" name="scan_to_cloud_filter_chain" output="screen">
-    <param name="target_frame" value="/odom_combined"/>
     <param name="high_fidelity" value="true"/>
   </node>
 
@@ -25,7 +24,7 @@
   <node pkg="laser_assembler" type="point_cloud2_assembler" name="point_cloud_assembler" output="screen">
     <remap from="cloud" to="cloud_self_filtered"/>
     <param name="max_clouds" value="1000" />
-    <param name="fixed_frame" value="/odom_combined" />
+    <param name="fixed_frame" value="/laser_fixed" />
     <param name="ignore_laser_skew" value="false" />
   </node>
 
