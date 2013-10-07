@@ -3,7 +3,7 @@
   xmlns:xacro="http://ros.org/wiki/xacro"
   name="rotunit">
 
-  <include filename="$(find uos_common_urdf)/common.xacro" />
+  <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
 
   <link name="ultrasound_front">
     <visual>

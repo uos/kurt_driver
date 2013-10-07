@@ -5,9 +5,9 @@
   xmlns:xacro="http://ros.org/wiki/xacro"
   name="kurt_outdoor_base">
 
-  <include filename="$(find uos_common_urdf)/common.xacro" />
-  <include filename="$(find kurt_base)/urdf/infrared_sonar.urdf.xacro" />
-  <include filename="$(find uos_common_urdf)/urdf/imu.gazebo.urdf.xacro" />
+  <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
+  <xacro:include filename="$(find kurt_base)/urdf/infrared_sonar.urdf.xacro" />
+  <xacro:include filename="$(find uos_common_urdf)/urdf/imu.gazebo.urdf.xacro" />
 
   <xacro:property name="wheel_width" value="0.046" />
   <xacro:property name="wheel_radius" value="0.08244" /> <!-- corresponds to wheel_perimeter=0.518 -->

@@ -6,8 +6,8 @@
   <xacro:property name="top_y_offset" value="0.009" />
   <xacro:property name="base_z_offset" value="0.03" /> <!-- distance from base_link to top of cover surface -->
 
-  <include filename="$(find kurt_base)/urdf/kurt_outdoor.urdf.xacro" />
-  <include filename="$(find kurt_description)/tops/kurt360_top.urdf.xacro" />
+  <xacro:include filename="$(find kurt_base)/urdf/kurt_outdoor.urdf.xacro" />
+  <xacro:include filename="$(find kurt_description)/tops/kurt360_top.urdf.xacro" />
 
   <joint name="top_base_joint" type="fixed">
     <parent link="base_link" />

@@ -2,9 +2,9 @@
 <robot
   xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find uos_common_urdf)/common.xacro" />
+  <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
 
-  <include filename="$(find kurt_base)/urdf/rotunit.urdf.xacro" />
+  <xacro:include filename="$(find kurt_base)/urdf/rotunit.urdf.xacro" />
 
   <xacro:property name="top_x" value="0.36" />
   <xacro:property name="top_y" value="0.28" />

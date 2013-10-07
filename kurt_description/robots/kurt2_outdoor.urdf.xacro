@@ -3,6 +3,6 @@
   xmlns:xacro="http://ros.org/wiki/xacro"
   name="kurt2">
 
-  <include filename="$(find kurt_base)/urdf/kurt_outdoor.urdf.xacro" />
-  <include filename="$(find kurt_description)/tops/kurt2_top.urdf.xacro" />
+  <xacro:include filename="$(find kurt_base)/urdf/kurt_outdoor.urdf.xacro" />
+  <xacro:include filename="$(find kurt_description)/tops/kurt2_top.urdf.xacro" />
 </robot>
