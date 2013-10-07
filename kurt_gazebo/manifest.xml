@@ -9,10 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/kurt_gazebo</url>
 
-  <depend package="gazebo_worlds" />
   <depend package="uos_gazebo_worlds" />
   <depend package="kurt_description" />
 
 </package>
-
-
