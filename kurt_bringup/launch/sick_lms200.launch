@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 <launch>
+a
+  <arg name="device" default="/dev/scanner"/>
+  <arg name="topic" default="scan"/>
+  <arg name="frame" default="laser"/>
+
   <node pkg="sicktoolbox_wrapper" type="sicklms" name="sicklms" output="screen">
-    <param name="port" value="/dev/scanner" />
-    <param name="frame_id" value="/laser360" />
+    <remap from="scan" to="$(arg device)">
+    <param name="port" value="$(arg device)" />
+    <param name="frame_id" value="$(arg frame)" />
     <param name="baud" value="500000" />
     <param name="resolution" value="1.0" />
   </node>
+
 </launch>
