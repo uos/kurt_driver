@@ -2,6 +2,7 @@
 <launch>
   <node pkg="sicktoolbox_wrapper" type="sicklms" name="sicklms" output="screen">
     <param name="port" value="/dev/scanner" />
+    <param name="frame_id" value="/laser360" />
     <param name="baud" value="500000" />
     <param name="resolution" value="1.0" />
   </node>
