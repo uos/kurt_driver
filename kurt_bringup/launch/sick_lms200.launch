@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-a
+
   <arg name="device" default="/dev/scanner"/>
   <arg name="topic" default="scan"/>
   <arg name="frame" default="laser"/>

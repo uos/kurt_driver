@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-
   <!-- scan (LaserScan) to cloud_filtered (PointCloud) -->
   <node pkg="laser_filters" type="scan_to_cloud_filter_chain" name="scan_to_cloud_filter_chain" output="screen">
     <remap from="scan" to="scan360" />
