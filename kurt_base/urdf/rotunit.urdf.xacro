@@ -8,7 +8,7 @@
   <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
 
   <xacro:include filename="$(find uos_common_urdf)/urdf/sick_lms200.urdf.xacro" />
-  <xacro:sick_lms200 laser_link="laser" /> 
+  <xacro:sick_lms200 laser_link="laser360" />
 
   <xacro:property name="rotunit_box_x" value="0.18" />
   <xacro:property name="rotunit_box_y" value="0.18" />
@@ -167,7 +167,7 @@
 
   <joint name="rotunit_laser_joint" type="fixed">
     <parent link="rotunit_turntable_link" />
-    <child link="laser" />
+    <child link="laser360" />
     <origin xyz="${rotunit_laser_x_offset} ${-rotunit_laser_y_offset} ${-rotunit_laser_z_offset}" rpy="${M_PI/2} 0 0"/>
   </joint>
 
