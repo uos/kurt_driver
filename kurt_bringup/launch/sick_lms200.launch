@@ -6,7 +6,7 @@
   <arg name="frame" default="laser"/>
 
   <node pkg="sicktoolbox_wrapper" type="sicklms" name="sicklms" output="screen">
-    <remap from="scan" to="$(arg device)">
+    <remap from="scan" to="$(arg topic)"/>
     <param name="port" value="$(arg device)" />
     <param name="frame_id" value="$(arg frame)" />
     <param name="baud" value="500000" />
