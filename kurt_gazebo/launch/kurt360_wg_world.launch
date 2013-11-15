@@ -3,10 +3,10 @@
   <!-- send kurt urdf to param server -->
   <include file="$(find kurt_description)/launch/upload_kurt360.launch" />
 
-  <!-- start gazebo with the avz world -->
-  <param name="/use_sim_time" value="true" />
-
-  <node name="gazebo" pkg="gazebo" type="gazebo" args="-u $(find uos_gazebo_worlds)/worlds/avz_collada.world" respawn="false" output="screen"/> 
+  <!-- start uos avz world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find uos_gazebo_worlds)/worlds/avz_collada.world"/>
+  </include>
 
   <include file="$(find kurt_gazebo)/launch/robot.launch"/>
 
