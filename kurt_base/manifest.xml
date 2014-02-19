@@ -13,6 +13,8 @@
   <depend package="nav_msgs"/>
   <depend package="sensor_msgs"/>
   <depend package="tf"/>
+  <depend package="ros_control"/>
+  <depend package="gazebo_ros_control"/>
 
 </package>
 
