@@ -11,7 +11,7 @@
 
   <depend package="uos_gazebo_worlds" />
   <depend package="kurt_description" />
-  <depend package="ros_control"/>
+  <depend package="controller_manager"/>
   <depend package="gazebo_ros_control"/>
 
 </package>
