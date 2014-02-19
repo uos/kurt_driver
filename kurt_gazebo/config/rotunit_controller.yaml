@@ -1,5 +1,7 @@
 rotunit_controller:
-  type: "robot_mechanism_controllers/JointVelocityController"
-  joint: "laser_rot_joint"
+  type: effort_controllers/JointVelocityController
+  joint: laser_rot_joint
   pid:
-    p: 2.0
+    p: 1.0
+    i: 0.0
+    d: 0.0
