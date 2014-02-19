@@ -8,7 +8,7 @@
   <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
 
   <xacro:include filename="$(find uos_common_urdf)/urdf/sick_lms200.urdf.xacro" />
-  <xacro:sick_lms200 laser_link="laser360" gazebo_topic="scan" />
+  <xacro:sick_lms200 laser_link="laser360" gazebo_topic="scan360" />
 
   <xacro:property name="rotunit_box_x" value="0.18" />
   <xacro:property name="rotunit_box_y" value="0.18" />
@@ -172,17 +172,18 @@
   </joint>
 
   <gazebo>
-    <controller:gazebo_ros_controller_manager name="gazebo_ros_controller_manager" plugin="libgazebo_ros_controller_manager.so">
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <alwaysOn>true</alwaysOn>
-      <updateRate>1000.0</updateRate>
-      <interface:audio name="gazebo_ros_controller_manager_dummy_iface" />
-    </controller:gazebo_ros_controller_manager>
+      <updateRate>100</updateRate>
+    </plugin>
   </gazebo>
 
-  <transmission name="laser_rot_trans" type="pr2_mechanism_model/SimpleTransmission">
-    <actuator name="laser_rot_motor" />
+  <transmission name="laser_rot_trans">
+    <type>transmission_interface/SimpleTransmission</type>
     <joint name="laser_rot_joint" />
-    <mechanicalReduction>1</mechanicalReduction>
-    <motorTorqueConstant>1</motorTorqueConstant>
+    <actuator name="laser_rot_motor" >
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
   </transmission>
 </robot>

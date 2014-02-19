@@ -1,35 +1,22 @@
 <?xml version="1.0"?>
 <launch>
+  <arg name="cloud_frame" default="/base_link"/>
 
-  <!-- scan (LaserScan) to cloud_filtered (PointCloud) -->
-  <node pkg="laser_filters" type="scan_to_cloud_filter_chain" name="scan_to_cloud_filter_chain" output="screen">
+  <!-- self-filtering based on radial point removal around the base_link -->
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="scan360_self_filter" output="screen">
     <remap from="scan" to="scan360" />
-    <param name="target_frame" value="odom_combined"/>
-    <param name="high_fidelity" value="true"/>
+    <remap from="scan_filtered" to="scan360_filtered" />
+    <rosparam command="load" file="$(find kurt_bringup)/config/kurt360_laser_self_filter.yaml"/>
   </node>
 
-  <!-- cloud_filtered2 (PointCloud2) to cloud_self_filtered2 (PointCloud2) -->
-  <node pkg="robot_self_filter" type="self_filter" name="self_filter" output="screen">
-	  <remap from="cloud_in" to="cloud_filtered" />
-	  <remap from="cloud_out" to="cloud_self_filtered" />
-
-    <!-- The frame of the sensor used to obtain the data to be
-       filtered; This parameter is optional. If it is not specified,
-       shadow points will be considered outside -->
-    <param name="sensor_frame" value="laser360" />
-
-    <rosparam command="load" file="$(find kurt_bringup)/config/kurt360_self_filter.yaml" />
-  </node>
-  
- <!-- cloud_self_filtered (PointCloud) to nothing (provides assemble_scans service) -->
-  <node pkg="laser_assembler" type="point_cloud2_assembler" name="point_cloud_assembler" output="screen">
-    <remap from="cloud" to="cloud_self_filtered"/>
-    <param name="max_clouds" value="1000" />
-    <param name="fixed_frame" value="odom_combined" />
+  <!-- assembler for filtered laser scans, provides assemble_scans service -->
+  <node pkg="laser_assembler" type="laser_scan_assembler" name="laser_scan_assembler" output="screen">
+    <param name="fixed_frame" value="$(arg cloud_frame)" />
+    <remap from="/scan" to="/scan360_filtered"/>
+    <param name="max_scans" value="15000" />
     <param name="ignore_laser_skew" value="false" />
   </node>
 
-  <!-- regularly calls assemble_scans service, publishes assembled_cloud (PointCloud) -->
+  <!-- regularly calls assemble_scans service, publishes assembled_cloud (PointCloud2) -->
   <node pkg="rotunit_snapshotter" type="rotunit_snapshotter" name="rotunit_snapshotter" output="screen"/>
-
 </launch>
