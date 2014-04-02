@@ -136,7 +136,7 @@
       <mu2 value="10"/>
       <kp value="100000000.0"/>
       <kd value="10000.0"/>
-      <fdir1 value="1 0 0"/>  <!-- see http://answers.ros.org/question/607/rotation-error-in-gazebo-simulation -->
+      <!-- fdir1 value="1 0 0"/ -->  <!-- see http://answers.ros.org/question/607/rotation-error-in-gazebo-simulation -->
     </gazebo>
 
     <joint name="${name}_wheel_joint" type="continuous">
