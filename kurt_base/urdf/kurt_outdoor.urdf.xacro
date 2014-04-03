@@ -94,7 +94,7 @@
   <!-- inertial measurement unit for gazebo -->
   <xacro:imu_gazebo link="base_link" imu_topic="imu" update_rate="100.0" stdev="${imu_stdev}" />
 
-  <xacro:macro name="kurt_wheel" params="name xyz">
+  <xacro:macro name="kurt_wheel" params="name xyz friction">
     <link name="${name}_wheel_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -119,23 +119,33 @@
           izz="0.000177810" />
       </inertial>
     </link>
+
+    <!-- friction parameters -->
+    <gazebo reference="${name}_wheel_link">
+      <!-- Turtlebot (friction = 10.0): -->
+      <mu1 value="${friction}"/>
+      <mu2 value="${friction}"/>
+      <kp value="100000000.0"/>
+      <kd value="10000.0"/>
+      <!-- fdir1 value="1 0 0"/ -->  <!-- see http://answers.ros.org/question/607/rotation-error-in-gazebo-simulation -->
+
+      <material value="Gazebo/Black" />
+    </gazebo>
+
     <joint name="${name}_wheel_joint" type="continuous">
       <origin xyz="${xyz}" rpy="0 0 0" />
       <parent link="base_link"/>
       <child link="${name}_wheel_link"/>
       <axis xyz="0 1 0"/>
     </joint>
-    <gazebo reference="kurt_wheel_${name}">
-      <material value="Gazebo/Grey" />
-    </gazebo>
   </xacro:macro>
 
-  <xacro:kurt_wheel name="left_front" xyz="${wheel_x_offset} ${axis_length/2} ${wheel_z_offset}" />
-  <xacro:kurt_wheel name="left_middle" xyz="0 ${middle_axis_length/2} ${wheel_z_offset}" />
-  <xacro:kurt_wheel name="left_rear" xyz="${-wheel_x_offset} ${axis_length/2} ${wheel_z_offset}" />
-  <xacro:kurt_wheel name="right_front" xyz="${wheel_x_offset} ${-axis_length/2} ${wheel_z_offset}" />
-  <xacro:kurt_wheel name="right_middle" xyz="0 ${-middle_axis_length/2} ${wheel_z_offset}" />
-  <xacro:kurt_wheel name="right_rear" xyz="${-wheel_x_offset} ${-axis_length/2} ${wheel_z_offset}" />
+  <xacro:kurt_wheel name="left_front" xyz="${wheel_x_offset} ${axis_length/2} ${wheel_z_offset}" friction="1.0" />
+  <xacro:kurt_wheel name="left_middle" xyz="0 ${middle_axis_length/2} ${wheel_z_offset}" friction="10.0" />
+  <xacro:kurt_wheel name="left_rear" xyz="${-wheel_x_offset} ${axis_length/2} ${wheel_z_offset}" friction="1.0" />
+  <xacro:kurt_wheel name="right_front" xyz="${wheel_x_offset} ${-axis_length/2} ${wheel_z_offset}" friction="1.0" />
+  <xacro:kurt_wheel name="right_middle" xyz="0 ${-middle_axis_length/2} ${wheel_z_offset}" friction="10.0" />
+  <xacro:kurt_wheel name="right_rear" xyz="${-wheel_x_offset} ${-axis_length/2} ${wheel_z_offset}" friction="1.0" />
 
   <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
        navigation stack dedpends on this frame -->
