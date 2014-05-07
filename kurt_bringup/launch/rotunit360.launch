@@ -40,7 +40,7 @@
     <arg name="device" value="/dev/scanner360" />
     <arg name="frame" value="laser360" />
     <arg name="topic" value="scan360" />
-  </launch>
+  </include>
 
   <include file="$(find kurt_bringup)/launch/rotunit_filter_chain.launch" />
 </launch>
