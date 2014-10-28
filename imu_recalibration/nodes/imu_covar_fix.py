@@ -25,7 +25,7 @@ def callback(msg_in):
 def main():
     global pub
     rospy.init_node('imu_covar_fix', anonymous=True)
-    pub = rospy.Publisher('imu_covar_fixed', Imu)
+    pub = rospy.Publisher('imu_covar_fixed', Imu, queue_size=100)
     rospy.Subscriber('imu', Imu, callback)
     rospy.spin()
 

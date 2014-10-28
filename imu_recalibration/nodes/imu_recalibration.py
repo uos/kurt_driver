@@ -32,7 +32,7 @@ class ImuRecalibration:
         rospy.init_node('imu_recalibration')
         rospy.Subscriber("imu", Imu, self.imu_callback)
         rospy.Subscriber("odom", Odometry, self.odom_callback)
-        self.pub = rospy.Publisher('imu_recalibrated', Imu)
+        self.pub = rospy.Publisher('imu_recalibrated', Imu, queue_size=100)
         self.error = 0.0
         self.delta = 0.0
         self.delta_new = 0.0
@@ -90,7 +90,7 @@ class ImuRecalibration:
 
     def odom_callback(self, msg):
         if abs(msg.twist.twist.angular.z) > ImuRecalibration.MAX_ANGULAR_VEL:
-            rospy.loginfo("Resetting imu_recalibration (robot is moving)")
+            rospy.logdebug("Resetting imu_recalibration (robot is moving)")
             self.calibration_counter = -1
 
 if __name__ == '__main__':

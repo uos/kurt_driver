@@ -46,7 +46,7 @@ def callback(msg_in):
 def main():
     global pub
     rospy.init_node('imu_to_pose', anonymous=True)
-    pub = rospy.Publisher('imu_pose', PoseStamped)
+    pub = rospy.Publisher('imu_pose', PoseStamped, queue_size=100)
     rospy.Subscriber('imu', Imu, callback)
     rospy.spin()
 

@@ -3,7 +3,7 @@ import roslib; roslib.load_manifest('kurt_base')
 import rospy
 from sensor_msgs.msg import JointState
 def fake_wheel_publisher():
-    pub = rospy.Publisher('/joint_states', JointState)
+    pub = rospy.Publisher('/joint_states', JointState, queue_size=100)
     rospy.init_node('fake_wheel_publisher')
     while not rospy.is_shutdown():
         js = JointState()
