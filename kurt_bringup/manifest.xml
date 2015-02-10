@@ -16,6 +16,7 @@
   <depend package="sicktoolbox_wrapper"/>
   <depend package="laser_assembler"/>
   <depend package="rotunit_snapshotter"/>
+  <depend package="robot_self_filter"/>
 
 </package>
 
