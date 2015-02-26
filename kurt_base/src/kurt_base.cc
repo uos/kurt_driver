@@ -425,8 +425,16 @@ int main(int argc, char** argv)
 
   ROSCall roscall(kurt, axis_length);
 
-  ros::Timer pid_timer = n.createTimer(ros::Duration(0.01), &ROSCall::pidCallback, &roscall);
-  ros::Subscriber cmd_vel_sub = n.subscribe("cmd_vel", 10, &ROSCall::velCallback, &roscall);
+  ros::Timer pid_timer;
+  ros::Subscriber cmd_vel_sub;
+  
+  bool use_kurt;
+  nh_ns.param("use_kurt", use_kurt, true);
+
+  if (use_kurt){
+    pid_timer = n.createTimer(ros::Duration(0.01), &ROSCall::pidCallback, &roscall);
+    cmd_vel_sub = n.subscribe("cmd_vel", 10, &ROSCall::velCallback, &roscall);
+  }
   ros::Subscriber rot_vel_sub;
   if (use_rotunit)
     rot_vel_sub = n.subscribe("rot_vel", 10, &ROSCall::rotunitCallback, &roscall);
