@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="kurt_base" type="kurt_base" name="kurt_base" output="screen">
+    <param name="use_kurt" value="false"/>
+    <param name="use_rotunit" value="true"/>
+  </node>
+</launch>
