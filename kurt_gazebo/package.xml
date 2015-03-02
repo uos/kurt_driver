@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>kurt_gazebo</name>
+  <version>0.1.0</version>
+  <description>
+    This package contains launch files for starting up Kurt in the Gazebo simulator.
+  </description>
+
+  <author email="mguenthe@uni-osnabrueck.de">Martin Günther</author>
+  <maintainer email="jochen@sprickerhof.de">Jochen Sprickerhof</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/kurt_gazebo</url>
+
+  <build_depend>uos_gazebo_worlds</build_depend>
+  <build_depend>kurt_description</build_depend>
+  <build_depend>controller_manager</build_depend>
+  <build_depend>gazebo_ros_control</build_depend>
+
+  <run_depend>uos_gazebo_worlds</run_depend>
+  <run_depend>kurt_description</run_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

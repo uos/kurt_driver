@@ -1,0 +1,22 @@
+<package>
+  <name> kurt_driver </name>
+  <version>0.1.0</version>
+  <description>
+    This stack contains all descriptions, drivers and bringup facilities for the KURT robots.
+  </description>
+
+  <maintainer email="jochen@sprickerhof.de">Jochen Sprickerhof</maintainer>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/kurt_driver</url>
+
+  <run_depend>kurt_base</run_depend>
+  <run_depend>kurt_bringup</run_depend>
+  <run_depend>kurt_description</run_depend>
+  <run_depend>kurt_gazebo</run_depend>
+  <run_depend>imu_recalibration</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <export>
+    <metapackage/>
+  </export>
+</package>
