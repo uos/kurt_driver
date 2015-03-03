@@ -180,10 +180,13 @@
 
   <transmission name="laser_rot_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="laser_rot_joint" />
+    <joint name="laser_rot_joint">
+       <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
     <actuator name="laser_rot_motor" >
       <hardwareInterface>EffortJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
   </transmission>
+
 </robot>
