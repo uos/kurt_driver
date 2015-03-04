@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>imu_recalibration</name>
+  <version>0.1.0</version>
+  <description>
+    Tools to recalibrate the on-board IMUs of the KURT robot.
+  </description>
+
+  <author email="mguenthe@uni-osnabrueck.de">Martin Günther</author>
+  <author email="jochen@sprickerhof.de">Jochen Sprickerhof</author>
+  <maintainer email="jochen@sprickerhof.de">Jochen Sprickerhof</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/kurt_description</url>
+
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

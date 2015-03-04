@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package>
+  <name>kurt_bringup</name>
+  <version>0.1.0</version>
+  <description>
+   Bringup launch files for the KURT robots.
+  </description>
+
+  <author email="jochen@sprickerhof.de">Jochen Sprickerhof</author>
+  <maintainer email="jochen@sprickerhof.de">Jochen Sprickerhof</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/kurt_bringup</url>
+
+  <build_depend>kurt_description</build_depend>
+  <build_depend>kurt_base</build_depend>
+  <build_depend>uos_diffdrive_teleop</build_depend>
+  <build_depend>robot_state_publisher</build_depend>
+  <build_depend>sicktoolbox_wrapper</build_depend>
+  <build_depend>laser_assembler</build_depend>
+  <build_depend>rotunit_snapshotter</build_depend>
+  <build_depend>robot_self_filter</build_depend>
+
+  <run_depend>kurt_description</run_depend>
+  <run_depend>kurt_base</run_depend>
+  <run_depend>uos_diffdrive_teleop</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>sicktoolbox_wrapper</run_depend>
+  <run_depend>laser_assembler</run_depend>
+  <run_depend>rotunit_snapshotter</run_depend>
+  <run_depend>robot_self_filter</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
