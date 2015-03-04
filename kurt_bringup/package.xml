@@ -3,7 +3,7 @@
   <name>kurt_bringup</name>
   <version>0.1.0</version>
   <description>
-    This package contains the bringup launch files for the KURT robots.
+   Bringup launch files for the KURT robots.
   </description>
 
   <author email="jochen@sprickerhof.de">Jochen Sprickerhof</author>

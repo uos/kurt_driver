@@ -31,15 +31,15 @@ add_executable(kurt_base src/can.cc src/kurt.cc src/kurt_base.cc)
 target_link_libraries(kurt_base ${catkin_LIBRARIES})
 add_dependencies(kurt_base ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
-add_executable(speedtable src/can.cc src/kurt.cc src/mytime.cc src/speedtable.cc)
-target_link_libraries(speedtable ${catkin_LIBRARIES})
-add_dependencies(speedtable ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+add_executable(kurt_speedtable src/can.cc src/kurt.cc src/mytime.cc src/speedtable.cc)
+target_link_libraries(kurt_speedtable ${catkin_LIBRARIES})
+add_dependencies(kurt_speedtable ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
-add_executable(countticks src/can.cc src/kurt.cc src/mytime.cc src/countticks.cc)
-target_link_libraries(countticks ${catkin_LIBRARIES})
-add_dependencies(countticks ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+add_executable(kurt_countticks src/can.cc src/kurt.cc src/mytime.cc src/countticks.cc)
+target_link_libraries(kurt_countticks ${catkin_LIBRARIES})
+add_dependencies(kurt_countticks ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
-install(TARGETS kurt_base speedtable countticks
+install(TARGETS kurt_base kurt_speedtable kurt_countticks
         RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 install(DIRECTORY nodes RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 

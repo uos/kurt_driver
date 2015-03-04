@@ -3,7 +3,7 @@
   <name>kurt_base</name>
   <version>0.1.0</version>
   <description>
-    This package contains a driver for KURT mobile robot bases and for their laser rotation units.
+    Driver for KURT mobile robot bases and for their laser rotation units.
   </description>
 
   <author email="jochen@sprickerhof.de">Jochen Sprickerhof</author>

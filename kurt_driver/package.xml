@@ -2,7 +2,7 @@
   <name> kurt_driver </name>
   <version>0.1.0</version>
   <description>
-    This stack contains all descriptions, drivers and bringup facilities for the KURT robots.
+    Descriptions, drivers and bringup facilities for the KURT robots.
   </description>
 
   <maintainer email="jochen@sprickerhof.de">Jochen Sprickerhof</maintainer>

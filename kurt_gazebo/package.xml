@@ -3,7 +3,7 @@
   <name>kurt_gazebo</name>
   <version>0.1.0</version>
   <description>
-    This package contains launch files for starting up Kurt in the Gazebo simulator.
+   Launch files for starting up Kurt in the Gazebo simulator.
   </description>
 
   <author email="mguenthe@uni-osnabrueck.de">Martin Günther</author>
