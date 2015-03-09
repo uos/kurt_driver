@@ -21,4 +21,11 @@ catkin_package(
   DEPENDS
 )
 
-install(DIRECTORY nodes DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS nodes/imu_covar_fix.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS nodes/imu_recalibration.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS nodes/imu_to_pose.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS nodes/imu_to_tf.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
