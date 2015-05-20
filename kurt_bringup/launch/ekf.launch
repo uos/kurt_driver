@@ -10,13 +10,7 @@
 
   <node unless="$(arg use_phidgets_imu)" pkg="imu_recalibration" type="imu_recalibration.py" name="imu_recalibration_ekf" />
 
-  <group if="$(arg use_phidgets_imu)">
-    <include file="$(find kurt_bringup)/launch/phidgets_imu.launch" />
-
-    # TODO: include /imu link in the URDF instead
-    <node pkg="tf" type="static_transform_publisher" name="$(anon static_transform_publisher)"
-      args="0 0 0 0 1 0 0 /base_link /imu 10" />
-  </group>
+  <include if="$(arg use_phidgets_imu)" file="$(find kurt_bringup)/launch/phidgets_imu.launch" />
 
   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
     <param name="freq" value="100.0"/>
