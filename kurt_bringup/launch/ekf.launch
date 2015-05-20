@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <launch>
-  # IMU topics:
-  # /imu              -- raw IMU data published by Kurt base (also in Gazebo); input to imu_recalibration; publishes in frame /base_link
-  # /imu_recalibrated -- output of imu_recalibration
-  # /imu/data         -- IMU data published by phidgets imu; publishes in frame /imu
+  <!--
+  IMU topics:
+  /imu              raw IMU data published by Kurt base (also in Gazebo); input to imu_recalibration; publishes in frame /base_link
+  /imu_recalibrated output of imu_recalibration
+  /imu/data         IMU data published by phidgets imu; publishes in frame /imu
 
-  # use phidgets imu? (recalibrated Kurt imu otherwise)
+  use phidgets imu? (recalibrated Kurt imu otherwise)
+  -->
   <arg name="use_phidgets_imu" default="false" />
 
   <node unless="$(arg use_phidgets_imu)" pkg="imu_recalibration" type="imu_recalibration.py" name="imu_recalibration_ekf" />
