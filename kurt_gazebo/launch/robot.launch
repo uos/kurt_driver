@@ -6,6 +6,8 @@
     <param name="publish_frequency" type="double" value="1000.0" />
   </node>
 
+  <include file="$(find kurt_bringup)/launch/laser_filter_chain.launch" />
+
   <!-- The odometry estimator -->
   <include file="$(find kurt_bringup)/launch/ekf.launch" />
 

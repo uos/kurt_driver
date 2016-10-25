@@ -10,6 +10,8 @@
 
   <include file="$(find kurt_bringup)/launch/sick_lms200.launch" />
 
+  <include file="$(find kurt_bringup)/launch/laser_filter_chain.launch" />
+
   <include file="$(find kurt_bringup)/launch/ekf.launch">
     <arg name="use_phidgets_imu" value="$(arg use_phidgets_imu)" />
   </include>
