@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <launch>
+  <!-- set model path -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find uos_gazebo_worlds)/Media/models/"/>
   <!-- send kurt urdf to param server -->
   <include file="$(find kurt_description)/launch/upload_kurt360.launch" />
 
